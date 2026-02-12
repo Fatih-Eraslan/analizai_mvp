@@ -8,12 +8,12 @@ import Button from '../components/Button';
 import './Profile.css';
 
 const settingsItems = [
-    { label: 'Notifications', icon: Bell, description: 'Manage alerts & updates', toggle: true },
-    { label: 'Appearance', icon: Palette, description: 'Dark mode & themes', toggle: true, defaultOn: true },
-    { label: 'Language', icon: Globe, description: 'English (US)', toggle: false },
-    { label: 'Privacy & Security', icon: Shield, description: 'Manage your data', toggle: false },
-    { label: 'Help & Support', icon: HelpCircle, description: 'FAQs & Contact', toggle: false },
-    { label: 'Rate AnalizAI', icon: Star, description: 'Share your feedback', toggle: false },
+    { label: 'Bildirimler', icon: Bell, description: 'Uyarıları & güncellemeleri yönet', toggle: true },
+    { label: 'Görünüm', icon: Palette, description: 'Karanlık mod & temalar', toggle: true, defaultOn: true },
+    { label: 'Dil', icon: Globe, description: 'Türkçe (TR)', toggle: false },
+    { label: 'Gizlilik & Güvenlik', icon: Shield, description: 'Verilerinizi yönetin', toggle: false },
+    { label: 'Yardım & Destek', icon: HelpCircle, description: 'SSS & İletişim', toggle: false },
+    { label: 'AnalizAI\'yi Değerlendir', icon: Star, description: 'Geri bildiriminizi paylaşın', toggle: false },
 ];
 
 const Profile = () => {
@@ -38,12 +38,12 @@ const Profile = () => {
                 <div className="profile-stats">
                     <div className="profile-stat">
                         <span className="profile-stat-value">24</span>
-                        <span className="profile-stat-label">Analyses</span>
+                        <span className="profile-stat-label">Analiz</span>
                     </div>
                     <div className="profile-stat-divider" />
                     <div className="profile-stat">
                         <span className="profile-stat-value">78.5</span>
-                        <span className="profile-stat-label">Avg Score</span>
+                        <span className="profile-stat-label">Ort. Puan</span>
                     </div>
                     <div className="profile-stat-divider" />
                     <div className="profile-stat">
@@ -55,7 +55,7 @@ const Profile = () => {
 
             {/* Settings */}
             <div className="profile-section animate-fade-in-up stagger-1">
-                <h2 className="profile-section-title">Settings</h2>
+                <h2 className="profile-section-title">Ayarlar</h2>
                 <Card hover={false} className="settings-card">
                     {settingsItems.map((item, i) => {
                         const Icon = item.icon;
@@ -94,7 +94,7 @@ const Profile = () => {
                     onClick={handleLogout}
                     className="logout-btn"
                 >
-                    Log Out
+                    Çıkış Yap
                 </Button>
             </div>
 

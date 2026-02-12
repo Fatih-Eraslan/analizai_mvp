@@ -22,19 +22,19 @@ const Navbar = () => {
                         className={`navbar-link ${currentPath === '/dashboard' ? 'active' : ''}`}
                         onClick={() => navigate('/dashboard')}
                     >
-                        Dashboard
+                        Panel
                     </button>
                     <button
                         className={`navbar-link ${currentPath === '/add-analysis' ? 'active' : ''}`}
                         onClick={() => navigate('/add-analysis')}
                     >
-                        New Analysis
+                        Yeni Analiz
                     </button>
                     <button
                         className={`navbar-link ${currentPath === '/profile' ? 'active' : ''}`}
                         onClick={() => navigate('/profile')}
                     >
-                        Profile
+                        Profil
                     </button>
                 </div>
 

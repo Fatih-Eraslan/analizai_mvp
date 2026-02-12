@@ -30,7 +30,7 @@ const Splash = () => {
                 <h1 className="splash-title">AnalizAI</h1>
                 <p className="splash-tagline">
                     <Sparkles size={14} />
-                    AI-Powered Business Intelligence
+                    Yapay Zeka Destekli İş Zekası
                 </p>
             </div>
 

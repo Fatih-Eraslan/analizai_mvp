@@ -40,13 +40,13 @@ const Register = () => {
                         <div className="auth-logo">
                             <BarChart3 size={28} />
                         </div>
-                        <h1 className="auth-title">Create Account</h1>
-                        <p className="auth-subtitle">Start analyzing your business with AI</p>
+                        <h1 className="auth-title">Hesap Oluştur</h1>
+                        <p className="auth-subtitle">İşinizi yapay zeka ile analiz etmeye başlayın</p>
                     </div>
 
                     <form onSubmit={handleSubmit} className="auth-form">
                         <Input
-                            label="Full Name"
+                            label="Ad Soyad"
                             type="text"
                             name="name"
                             value={form.name}
@@ -56,7 +56,7 @@ const Register = () => {
                         />
 
                         <Input
-                            label="Email"
+                            label="E-posta"
                             type="email"
                             name="email"
                             value={form.email}
@@ -67,7 +67,7 @@ const Register = () => {
 
                         <div className="password-wrapper">
                             <Input
-                                label="Password"
+                                label="Şifre"
                                 type={showPass ? 'text' : 'password'}
                                 name="password"
                                 value={form.password}
@@ -85,7 +85,7 @@ const Register = () => {
                         </div>
 
                         <Input
-                            label="Confirm Password"
+                            label="Şifreyi Onayla"
                             type={showPass ? 'text' : 'password'}
                             name="confirmPassword"
                             value={form.confirmPassword}
@@ -100,16 +100,16 @@ const Register = () => {
                                 checked={agreed}
                                 onChange={(e) => setAgreed(e.target.checked)}
                             />
-                            <span>I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></span>
+                            <span><a href="#">Hizmet Şartları</a> ve <a href="#">Gizlilik Politikasını</a> kabul ediyorum</span>
                         </label>
 
                         <Button type="submit" fullWidth size="lg" loading={loading} disabled={!agreed}>
-                            Create Account
+                            Hesap Oluştur
                         </Button>
                     </form>
 
                     <div className="auth-divider">
-                        <span>or continue with</span>
+                        <span>veya şununla devam et</span>
                     </div>
 
                     <div className="auth-social">
@@ -131,7 +131,7 @@ const Register = () => {
                     </div>
 
                     <p className="auth-footer">
-                        Already have an account? <Link to="/login">Sign In</Link>
+                        Zaten hesabınız var mı? <Link to="/login">Giriş Yap</Link>
                     </p>
                 </div>
             </div>

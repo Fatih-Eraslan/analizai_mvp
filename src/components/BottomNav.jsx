@@ -3,9 +3,9 @@ import { LayoutDashboard, PlusCircle, User } from 'lucide-react';
 import './BottomNav.css';
 
 const navItems = [
-    { path: '/dashboard', label: 'Dashboard', icon: LayoutDashboard },
-    { path: '/add-analysis', label: 'Analyze', icon: PlusCircle },
-    { path: '/profile', label: 'Profile', icon: User },
+    { path: '/dashboard', label: 'Panel', icon: LayoutDashboard },
+    { path: '/add-analysis', label: 'Analiz Et', icon: PlusCircle },
+    { path: '/profile', label: 'Profil', icon: User },
 ];
 
 const BottomNav = () => {

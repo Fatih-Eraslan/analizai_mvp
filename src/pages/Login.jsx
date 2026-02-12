@@ -34,13 +34,13 @@ const Login = () => {
                         <div className="auth-logo">
                             <BarChart3 size={28} />
                         </div>
-                        <h1 className="auth-title">Welcome Back</h1>
-                        <p className="auth-subtitle">Sign in to your AnalizAI account</p>
+                        <h1 className="auth-title">Tekrar Hoşgeldiniz</h1>
+                        <p className="auth-subtitle">AnalizAI hesabınıza giriş yapın</p>
                     </div>
 
                     <form onSubmit={handleSubmit} className="auth-form">
                         <Input
-                            label="Email"
+                            label="E-posta"
                             type="email"
                             name="email"
                             value={form.email}
@@ -51,7 +51,7 @@ const Login = () => {
 
                         <div className="password-wrapper">
                             <Input
-                                label="Password"
+                                label="Şifre"
                                 type={showPass ? 'text' : 'password'}
                                 name="password"
                                 value={form.password}
@@ -71,18 +71,18 @@ const Login = () => {
                         <div className="auth-options">
                             <label className="auth-checkbox">
                                 <input type="checkbox" />
-                                <span>Remember me</span>
+                                <span>Beni hatırla</span>
                             </label>
-                            <a href="#" className="auth-link-small">Forgot password?</a>
+                            <a href="#" className="auth-link-small">Şifremi unuttum?</a>
                         </div>
 
                         <Button type="submit" fullWidth size="lg" loading={loading}>
-                            Sign In
+                            Giriş Yap
                         </Button>
                     </form>
 
                     <div className="auth-divider">
-                        <span>or continue with</span>
+                        <span>veya şununla devam et</span>
                     </div>
 
                     <div className="auth-social">
@@ -104,7 +104,7 @@ const Login = () => {
                     </div>
 
                     <p className="auth-footer">
-                        Don't have an account? <Link to="/register">Sign Up</Link>
+                        Hesabınız yok mu? <Link to="/register">Kaydolun</Link>
                     </p>
                 </div>
             </div>

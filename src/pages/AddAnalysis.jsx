@@ -9,11 +9,11 @@ import Input from '../components/Input';
 import Card from '../components/Card';
 import './AddAnalysis.css';
 
-const steps = ['Company Info', 'Financial', 'Details'];
+const steps = ['Şirket Bilgileri', 'Finansal', 'Detaylar'];
 
 const industries = [
-    'Technology', 'Healthcare', 'Finance', 'E-commerce',
-    'Manufacturing', 'Education', 'Real Estate', 'SaaS', 'F&B', 'Other'
+    'Teknoloji', 'Sağlık', 'Finans', 'E-ticaret',
+    'Üretim', 'Eğitim', 'Emlak', 'Yazılım', 'Gıda', 'Diğer'
 ];
 
 const AddAnalysis = () => {
@@ -49,8 +49,8 @@ const AddAnalysis = () => {
     return (
         <div className="page-container add-analysis">
             <div className="add-header animate-fade-in-up">
-                <h1 className="section-title">New Analysis</h1>
-                <p className="section-subtitle">Enter business details for AI-powered analysis</p>
+                <h1 className="section-title">Yeni Analiz</h1>
+                <p className="section-subtitle">Yapay zeka destekli analiz için işletme detaylarını girin</p>
             </div>
 
             {/* Step Progress */}
@@ -71,7 +71,7 @@ const AddAnalysis = () => {
                 {currentStep === 0 && (
                     <div className="form-step">
                         <Input
-                            label="Company Name"
+                            label="Şirket Adı"
                             name="companyName"
                             value={form.companyName}
                             onChange={handleChange}
@@ -79,7 +79,7 @@ const AddAnalysis = () => {
                             required
                         />
                         <div className="industry-selector">
-                            <label className="field-label">Industry</label>
+                            <label className="field-label">Sektör</label>
                             <div className="industry-grid">
                                 {industries.map((ind) => (
                                     <button
@@ -94,12 +94,12 @@ const AddAnalysis = () => {
                             </div>
                         </div>
                         <Input
-                            label="Website"
+                            label="Web Sitesi"
                             name="website"
                             value={form.website}
                             onChange={handleChange}
                             icon={Globe}
-                            placeholder="https://example.com"
+                            placeholder="https://ornek.com"
                         />
                     </div>
                 )}
@@ -108,34 +108,34 @@ const AddAnalysis = () => {
                 {currentStep === 1 && (
                     <div className="form-step">
                         <Input
-                            label="Annual Revenue (USD)"
+                            label="Yıllık Gelir (TL)"
                             name="revenue"
                             value={form.revenue}
                             onChange={handleChange}
                             icon={DollarSign}
-                            placeholder="e.g. 5,000,000"
+                            placeholder="ör. 5.000.000"
                         />
                         <Input
-                            label="Number of Employees"
+                            label="Çalışan Sayısı"
                             name="employees"
                             value={form.employees}
                             onChange={handleChange}
                             icon={Users}
-                            placeholder="e.g. 50"
+                            placeholder="ör. 50"
                         />
                         <Input
-                            label="Founded Year"
+                            label="Kuruluş Yılı"
                             name="founded"
                             value={form.founded}
                             onChange={handleChange}
-                            placeholder="e.g. 2020"
+                            placeholder="ör. 2020"
                         />
                         <Input
-                            label="Location"
+                            label="Konum"
                             name="location"
                             value={form.location}
                             onChange={handleChange}
-                            placeholder="e.g. San Francisco, CA"
+                            placeholder="ör. İstanbul, Türkiye"
                         />
                     </div>
                 )}
@@ -144,33 +144,33 @@ const AddAnalysis = () => {
                 {currentStep === 2 && (
                     <div className="form-step">
                         <Input
-                            label="Business Description"
+                            label="İşletme Tanımı"
                             name="description"
                             value={form.description}
                             onChange={handleChange}
                             icon={FileText}
                             textarea
                             rows={5}
-                            placeholder="Describe the core business, products, services, and target market..."
+                            placeholder="Ana iş kollarını, ürünleri, hizmetleri ve hedef pazarı açıklayın..."
                         />
 
                         <Card variant="gradient" hover={false} className="summary-card">
-                            <h3 className="summary-title">Analysis Summary</h3>
+                            <h3 className="summary-title">Analiz Özeti</h3>
                             <div className="summary-grid">
                                 <div className="summary-item">
-                                    <span className="summary-label">Company</span>
+                                    <span className="summary-label">Şirket</span>
                                     <span className="summary-value">{form.companyName || '—'}</span>
                                 </div>
                                 <div className="summary-item">
-                                    <span className="summary-label">Industry</span>
+                                    <span className="summary-label">Sektör</span>
                                     <span className="summary-value">{form.industry || '—'}</span>
                                 </div>
                                 <div className="summary-item">
-                                    <span className="summary-label">Revenue</span>
-                                    <span className="summary-value">{form.revenue ? `$${form.revenue}` : '—'}</span>
+                                    <span className="summary-label">Gelir</span>
+                                    <span className="summary-value">{form.revenue ? `₺${form.revenue}` : '—'}</span>
                                 </div>
                                 <div className="summary-item">
-                                    <span className="summary-label">Employees</span>
+                                    <span className="summary-label">Çalışanlar</span>
                                     <span className="summary-value">{form.employees || '—'}</span>
                                 </div>
                             </div>
@@ -182,17 +182,17 @@ const AddAnalysis = () => {
                 <div className="form-actions">
                     {currentStep > 0 && (
                         <Button variant="secondary" onClick={prevStep} icon={ChevronLeft}>
-                            Back
+                            Geri
                         </Button>
                     )}
                     <div style={{ flex: 1 }} />
                     {currentStep < steps.length - 1 ? (
                         <Button onClick={nextStep} icon={ChevronRight}>
-                            Continue
+                            Devam Et
                         </Button>
                     ) : (
                         <Button onClick={handleSubmit}>
-                            Start Analysis
+                            Analizi Başlat
                         </Button>
                     )}
                 </div>

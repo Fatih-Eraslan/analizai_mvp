@@ -10,10 +10,10 @@ import ChartPlaceholder from '../components/ChartPlaceholder';
 import './AnalysisResult.css';
 
 const categoryScores = [
-    { label: 'Financial Health', score: 78, icon: DollarSign, trend: 5 },
-    { label: 'Market Position', score: 65, icon: Target, trend: -2 },
-    { label: 'Growth Potential', score: 88, icon: TrendingUp, trend: 12 },
-    { label: 'Risk Assessment', score: 72, icon: Shield, trend: 3 },
+    { label: 'Finansal Sağlık', score: 78, icon: DollarSign, trend: 5 },
+    { label: 'Pazar Konumu', score: 65, icon: Target, trend: -2 },
+    { label: 'Büyüme Potansiyeli', score: 88, icon: TrendingUp, trend: 12 },
+    { label: 'Risk Değerlendirmesi', score: 72, icon: Shield, trend: 3 },
 ];
 
 const AnalysisResult = () => {
@@ -25,17 +25,17 @@ const AnalysisResult = () => {
             <div className="results-hero animate-fade-in-up">
                 <div className="results-hero-bg" />
                 <div className="results-hero-content">
-                    <ScoreCard score={76} size="lg" label="Overall Score" trend={8} />
+                    <ScoreCard score={76} size="lg" label="Genel Puan" trend={8} />
                     <div className="results-hero-info">
-                        <h1 className="results-company">TechVision Labs</h1>
-                        <span className="results-badge">Technology • SaaS</span>
+                        <h1 className="results-company">Vizyon Teknoloji</h1>
+                        <span className="results-badge">Teknoloji • Yazılım</span>
                     </div>
                 </div>
             </div>
 
             {/* Category Scores */}
             <div className="results-section animate-fade-in-up stagger-1">
-                <h2 className="section-title">Category Scores</h2>
+                <h2 className="section-title">Kategori Puanları</h2>
                 <div className="category-grid">
                     {categoryScores.map((cat) => {
                         const Icon = cat.icon;
@@ -68,22 +68,22 @@ const AnalysisResult = () => {
 
             {/* Charts */}
             <div className="results-section animate-fade-in-up stagger-2">
-                <h2 className="section-title">Detailed Breakdown</h2>
+                <h2 className="section-title">Detaylı Dağılım</h2>
                 <div className="results-charts">
-                    <ChartPlaceholder type="pie" title="Score Distribution" height={240} />
-                    <ChartPlaceholder type="bar" title="Metric Comparison" height={240} />
+                    <ChartPlaceholder type="pie" title="Puan Dağılımı" height={240} />
+                    <ChartPlaceholder type="bar" title="Metrik Karşılaştırması" height={240} />
                 </div>
             </div>
 
             {/* Key Findings */}
             <div className="results-section animate-fade-in-up stagger-3">
-                <h2 className="section-title">Key Findings</h2>
+                <h2 className="section-title">Önemli Bulgular</h2>
                 <div className="findings-list">
                     {[
-                        { text: 'Strong revenue growth trajectory of 23% YoY', type: 'positive' },
-                        { text: 'Market share increased by 4.2% in Q4', type: 'positive' },
-                        { text: 'Customer acquisition cost needs optimization', type: 'warning' },
-                        { text: 'Debt-to-equity ratio above industry average', type: 'negative' },
+                        { text: 'Yıllık %23 güçlü gelir artışı ivmesi', type: 'positive' },
+                        { text: 'Pazar payı 4. çeyrekte %4.2 arttı', type: 'positive' },
+                        { text: 'Müşteri edinme maliyeti optimizasyonu gerekli', type: 'warning' },
+                        { text: 'Borç/özsermaye oranı sektör ortalamasının üzerinde', type: 'negative' },
                     ].map((finding, i) => (
                         <Card key={i} className={`finding-item finding-${finding.type}`} hover={false}>
                             <div className={`finding-dot ${finding.type}`} />
@@ -100,7 +100,7 @@ const AnalysisResult = () => {
                     icon={Sparkles}
                     onClick={() => navigate('/recommendations')}
                 >
-                    View AI Recommendations
+                    Yapay Zeka Önerilerini Gör
                     <ArrowRight size={18} />
                 </Button>
             </div>

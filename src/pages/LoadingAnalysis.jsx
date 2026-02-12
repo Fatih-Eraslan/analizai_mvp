@@ -5,10 +5,10 @@ import Loader from '../components/Loader';
 import './LoadingAnalysis.css';
 
 const analysisSteps = [
-    { label: 'Collecting business data', icon: Database, duration: 2000 },
-    { label: 'Running AI analysis', icon: Brain, duration: 2500 },
-    { label: 'Generating insights', icon: Sparkles, duration: 2000 },
-    { label: 'Preparing results', icon: CheckCircle2, duration: 1000 },
+    { label: 'İşletme verileri toplanıyor', icon: Database, duration: 2000 },
+    { label: 'Yapay zeka analizi çalıştırılıyor', icon: Brain, duration: 2500 },
+    { label: 'Öngörüler oluşturuluyor', icon: Sparkles, duration: 2000 },
+    { label: 'Sonuçlar hazırlanıyor', icon: CheckCircle2, duration: 1000 },
 ];
 
 const LoadingAnalysis = () => {
@@ -53,8 +53,8 @@ const LoadingAnalysis = () => {
             <div className="loading-content animate-scale-in">
                 <Loader size={120} progress={progress} />
 
-                <h2 className="loading-title">Analyzing Your Business</h2>
-                <p className="loading-subtitle">Our AI is processing your data</p>
+                <h2 className="loading-title">İşletmenizi Analiz Ediyoruz</h2>
+                <p className="loading-subtitle">Yapay zeka verilerinizi işliyor</p>
 
                 <div className="loading-steps">
                     {analysisSteps.map((step, i) => {

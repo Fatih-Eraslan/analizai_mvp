@@ -11,62 +11,62 @@ const recommendations = [
     {
         id: 1,
         priority: 'high',
-        title: 'Optimize Customer Acquisition',
-        description: 'Reduce CAC by 18% through targeted digital campaigns and referral program implementation. Focus on high-intent channels.',
-        impact: 'High Impact',
-        category: 'Growth',
+        title: 'Müşteri Edinimini Optimize Et',
+        description: 'Hedefli dijital kampanyalar ve referans programı ile Müşteri Edinme Maliyetini (CAC) %18 azaltın. Yüksek niyetli kanallara odaklanın.',
+        impact: 'Yüksek Etki',
+        category: 'Büyüme',
         icon: Users,
-        metrics: '$2.4M potential savings',
+        metrics: '$2.4M potansiyel tasarruf',
     },
     {
         id: 2,
         priority: 'high',
-        title: 'Expand Market Presence',
-        description: 'Enter 3 untapped regional markets with localized strategies. Current market penetration is at 34%, below the 50% industry benchmark.',
-        impact: 'High Impact',
-        category: 'Market',
+        title: 'Pazar Varlığını Genişlet',
+        description: 'Bölgesel stratejilerle keşfedilmemiş 3 pazara girin. Mevcut pazar payı %34, sektör ortalaması olan %50’nin altında.',
+        impact: 'Yüksek Etki',
+        category: 'Pazar',
         icon: Globe,
-        metrics: '16% market share increase',
+        metrics: '%16 pazar payı artışı',
     },
     {
         id: 3,
         priority: 'medium',
-        title: 'Strengthen Financial Reserves',
-        description: 'Increase cash reserves by restructuring short-term debt. Improve debt-to-equity ratio from 1.8 to the industry standard of 1.2.',
-        impact: 'Medium Impact',
-        category: 'Financial',
+        title: 'Finansal Rezervleri Güçlendir',
+        description: 'Kısa vadeli borçları yeniden yapılandırarak nakit rezervlerini artırın. Borç/özsermaye oranını 1.8’den sektör standardı olan 1.2’ye çekin.',
+        impact: 'Orta Etki',
+        category: 'Finansal',
         icon: DollarSign,
-        metrics: 'Risk reduction by 25%',
+        metrics: 'Riskte %25 azalma',
     },
     {
         id: 4,
         priority: 'medium',
-        title: 'Implement AI-Driven Analytics',
-        description: 'Deploy predictive analytics for inventory management and demand forecasting. Expected efficiency gain of 30% in operations.',
-        impact: 'Medium Impact',
-        category: 'Operations',
+        title: 'AI Tabanlı Analitik Uygula',
+        description: 'Stok yönetimi ve talep tahmini için öngörücü analitik kullanın. Operasyonlarda %30 verimlilik artışı bekleniyor.',
+        impact: 'Orta Etki',
+        category: 'Operasyon',
         icon: Zap,
-        metrics: '30% efficiency gain',
+        metrics: '%30 verimlilik kazancı',
     },
     {
         id: 5,
         priority: 'low',
-        title: 'Enhance Cybersecurity Framework',
-        description: 'Upgrade security infrastructure to meet SOC 2 Type II compliance. This will strengthen client trust and open enterprise-level contracts.',
-        impact: 'Low Impact',
-        category: 'Security',
+        title: 'Siber Güvenlik Çerçevesini Geliştir',
+        description: 'SOC 2 Tip II uyumluluğu için güvenlik altyapısını yükseltin. Bu, müşteri güvenini artıracak ve kurumsal sözleşmelerin önünü açacaktır.',
+        impact: 'Düşük Etki',
+        category: 'Güvenlik',
         icon: Shield,
-        metrics: 'Compliance readiness',
+        metrics: 'Uyumluluk hazırlığı',
     },
     {
         id: 6,
         priority: 'low',
-        title: 'Diversify Revenue Streams',
-        description: 'Explore SaaS subscription models alongside existing offerings. Recurring revenue can stabilize cash flow and improve valuation multiples.',
-        impact: 'Low Impact',
-        category: 'Strategy',
+        title: 'Gelir Kaynaklarını Çeşitlendir',
+        description: 'Mevcut tekliflerin yanında SaaS abonelik modellerini araştırın. Tekrarlayan gelir, nakit akışını dengeleyebilir.',
+        impact: 'Düşük Etki',
+        category: 'Strateji',
         icon: Target,
-        metrics: 'Revenue stability +40%',
+        metrics: 'Gelir kararlılığı +%40',
     },
 ];
 
@@ -87,26 +87,26 @@ const AIRecommendations = () => {
             <div className="recs-header animate-fade-in-up">
                 <div className="recs-header-left">
                     <Button variant="ghost" icon={ArrowLeft} onClick={() => navigate('/results')}>
-                        Back
+                        Geri
                     </Button>
                 </div>
                 <div className="recs-header-content">
                     <div className="recs-icon">
                         <Sparkles size={24} />
                     </div>
-                    <h1 className="section-title">AI Recommendations</h1>
-                    <p className="section-subtitle">Personalized strategies to improve your business performance</p>
+                    <h1 className="section-title">Yapay Zeka Önerileri</h1>
+                    <p className="section-subtitle">İş performansınızı artırmak için kişiselleştirilmiş stratejiler</p>
                 </div>
             </div>
 
             {/* Priority Filter */}
             <div className="recs-filters animate-fade-in-up stagger-1">
-                <span className="filter-label">Filter by priority:</span>
+                <span className="filter-label">Önceliğe göre filtrele:</span>
                 <div className="filter-chips">
-                    <button className="filter-chip active">All</button>
-                    <button className="filter-chip high">High</button>
-                    <button className="filter-chip medium">Medium</button>
-                    <button className="filter-chip low">Low</button>
+                    <button className="filter-chip active">Tümü</button>
+                    <button className="filter-chip high">Yüksek</button>
+                    <button className="filter-chip medium">Orta</button>
+                    <button className="filter-chip low">Düşük</button>
                 </div>
             </div>
 
@@ -150,7 +150,7 @@ const AIRecommendations = () => {
             {/* Back to Dashboard */}
             <div className="recs-cta animate-fade-in-up">
                 <Button variant="secondary" size="lg" icon={BarChart3} onClick={() => navigate('/dashboard')}>
-                    Back to Dashboard
+                    Panele Dön
                 </Button>
             </div>
         </div>
