@@ -1,0 +1,83 @@
+.chart-placeholder {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: var(--space-md);
+    display: flex;
+    flex-direction: column;
+}
+
+.chart-title {
+    font-size: var(--font-sm);
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin-bottom: var(--space-sm);
+}
+
+.chart-content {
+    flex: 1;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    overflow: hidden;
+}
+
+/* Bar chart */
+.chart-bars {
+    display: flex;
+    align-items: flex-end;
+    gap: 6px;
+    height: 100%;
+    width: 100%;
+    padding: 0 var(--space-sm);
+}
+
+.chart-bar {
+    flex: 1;
+    background: var(--gradient-secondary);
+    border-radius: 4px 4px 0 0;
+    opacity: 0.7;
+    animation: fadeInUp 0.5s ease forwards;
+    min-height: 8px;
+    transition: opacity var(--transition-fast);
+}
+
+.chart-bar:hover {
+    opacity: 1;
+}
+
+/* Line chart */
+.chart-line-svg {
+    width: 100%;
+    height: 100%;
+}
+
+.chart-line-path {
+    stroke-dasharray: 400;
+    stroke-dashoffset: 400;
+    animation: lineReveal 2s ease forwards;
+}
+
+@keyframes lineReveal {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+.chart-line-area {
+    opacity: 0;
+    animation: fadeIn 1s ease forwards;
+    animation-delay: 1s;
+}
+
+/* Pie chart */
+.chart-pie {
+    width: 100%;
+    max-width: 140px;
+    aspect-ratio: 1;
+}
+
+.chart-pie svg {
+    width: 100%;
+    height: 100%;
+}

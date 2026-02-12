@@ -1,0 +1,101 @@
+.input-group {
+    position: relative;
+    margin-bottom: var(--space-lg);
+}
+
+.input-field {
+    width: 100%;
+    padding: 0.85rem 1rem;
+    padding-top: 1.2rem;
+    background: var(--bg-input);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    color: var(--text-primary);
+    font-size: var(--font-base);
+    transition: all var(--transition-fast);
+    outline: none;
+}
+
+.input-group .input-icon~.input-field {
+    padding-left: 2.8rem;
+}
+
+.input-field::placeholder {
+    color: var(--text-tertiary);
+}
+
+.input-field:focus {
+    border-color: var(--border-accent);
+    background: rgba(99, 102, 241, 0.03);
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.08);
+}
+
+.input-field.input-error {
+    border-color: #ef4444;
+}
+
+.input-field.input-error:focus {
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+textarea.input-field {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* Label */
+.input-label {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-tertiary);
+    font-size: var(--font-base);
+    pointer-events: none;
+    transition: all var(--transition-fast);
+}
+
+textarea~.input-label {
+    top: 1.1rem;
+    transform: none;
+}
+
+.input-group.focused .input-label,
+.input-group.has-value .input-label {
+    top: 0.5rem;
+    transform: none;
+    font-size: var(--font-xs);
+    color: var(--text-accent);
+}
+
+.input-group .input-icon~.input-field~.input-label {
+    left: 2.8rem;
+}
+
+.input-group.focused .input-icon~.input-field~.input-label,
+.input-group.has-value .input-icon~.input-field~.input-label {
+    left: 1rem;
+}
+
+/* Icon */
+.input-icon {
+    position: absolute;
+    left: 0.85rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-tertiary);
+    z-index: 1;
+    transition: color var(--transition-fast);
+}
+
+.input-group.focused .input-icon {
+    color: var(--text-accent);
+}
+
+/* Error text */
+.input-error-text {
+    display: block;
+    margin-top: var(--space-xs);
+    font-size: var(--font-xs);
+    color: #f87171;
+}

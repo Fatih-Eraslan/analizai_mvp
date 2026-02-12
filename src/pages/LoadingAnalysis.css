@@ -1,0 +1,116 @@
+.loading-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.loading-bg-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.25;
+}
+
+.loading-orb-1 {
+    width: 350px;
+    height: 350px;
+    background: rgba(99, 102, 241, 0.3);
+    top: -100px;
+    right: -80px;
+    animation: float 8s ease-in-out infinite;
+}
+
+.loading-orb-2 {
+    width: 250px;
+    height: 250px;
+    background: rgba(139, 92, 246, 0.25);
+    bottom: -60px;
+    left: -60px;
+    animation: float 6s ease-in-out infinite;
+    animation-delay: 3s;
+}
+
+.loading-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-xl);
+    padding: var(--space-xl);
+    z-index: 1;
+}
+
+.loading-title {
+    font-size: var(--font-2xl);
+    font-weight: 700;
+    color: var(--text-primary);
+    text-align: center;
+}
+
+.loading-subtitle {
+    font-size: var(--font-sm);
+    color: var(--text-secondary);
+    text-align: center;
+    margin-top: -12px;
+}
+
+/* Steps */
+.loading-steps {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    width: 100%;
+    max-width: 300px;
+}
+
+.loading-step {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    font-size: var(--font-sm);
+    color: var(--text-tertiary);
+    transition: all var(--transition-base);
+    position: relative;
+}
+
+.loading-step.active {
+    color: var(--text-primary);
+}
+
+.loading-step.done {
+    color: #34d399;
+}
+
+.loading-step-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: var(--radius-md);
+    background: var(--bg-tertiary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all var(--transition-base);
+}
+
+.loading-step.active .loading-step-icon {
+    background: rgba(99, 102, 241, 0.15);
+    color: #818cf8;
+}
+
+.loading-step.done .loading-step-icon {
+    background: rgba(16, 185, 129, 0.15);
+    color: #34d399;
+}
+
+.loading-step-pulse {
+    position: absolute;
+    left: 0;
+    width: 32px;
+    height: 32px;
+    border-radius: var(--radius-md);
+    background: rgba(99, 102, 241, 0.1);
+    animation: pulse 1.5s ease infinite;
+}
