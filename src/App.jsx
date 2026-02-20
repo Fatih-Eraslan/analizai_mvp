@@ -23,6 +23,7 @@ import MahalleTrendleri from './pages/MahalleTrendleri';
 import KampanyaOnerileri from './pages/KampanyaOnerileri';
 import Raporlar from './pages/Raporlar';
 import Abonelik from './pages/Abonelik';
+import AnalizAI from './pages/AnalizAI';
 
 /* Auth guard — redirects to /login if no session */
 const AuthGuard = () => {
@@ -103,6 +104,7 @@ function App() {
           <Route path="/raporlar" element={<Raporlar />} />
           <Route path="/abonelik" element={<Abonelik />} />
           <Route path="/profil" element={<MahalleProfil />} />
+          <Route path="/analizai" element={<AnalizAI />} />
         </Route>
 
         {/* Original main routes (kept for compatibility) */}

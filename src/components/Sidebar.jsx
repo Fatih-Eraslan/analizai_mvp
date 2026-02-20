@@ -2,7 +2,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import {
     LayoutDashboard, Users, DollarSign, MessageSquare,
     TrendingUp, Megaphone, FileText, CreditCard,
-    ChevronLeft, ChevronRight, Store, LogOut, UserCircle
+    ChevronLeft, ChevronRight, Store, LogOut, UserCircle, Bot
 } from 'lucide-react';
 import './Sidebar.css';
 
@@ -15,6 +15,7 @@ const navItems = [
     { path: '/kampanya-onerileri', label: 'Kampanya Önerileri', icon: Megaphone },
     { path: '/raporlar', label: 'Raporlar', icon: FileText },
     { path: '/abonelik', label: 'Abonelik', icon: CreditCard },
+    { path: '/analizai', label: 'AnalizAI', icon: Bot },
 ];
 
 const Sidebar = ({ collapsed, onToggle }) => {
