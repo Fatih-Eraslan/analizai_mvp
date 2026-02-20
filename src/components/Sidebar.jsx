@@ -68,7 +68,7 @@ const Sidebar = ({ collapsed, onToggle }) => {
                             <span className="sidebar-user-plan">Pro Plan</span>
                         </div>
                     </div>
-                    <button className="sidebar-link logout-link" onClick={() => navigate('/login')}>
+                    <button className="sidebar-link logout-link" onClick={() => { localStorage.removeItem('mahalle_auth'); localStorage.removeItem('mahalle_user'); navigate('/mahalle/login'); }}>
                         <LogOut size={20} />
                         <span className="sidebar-link-text">Çıkış</span>
                     </button>

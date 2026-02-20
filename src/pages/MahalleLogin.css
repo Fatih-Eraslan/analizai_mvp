@@ -1,0 +1,273 @@
+.mlogin-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-lg);
+    position: relative;
+    overflow: hidden;
+    background: var(--bg-primary);
+}
+
+/* Animated background orbs */
+.mlogin-bg {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.mlogin-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.25;
+    animation: orbFloat 12s ease-in-out infinite alternate;
+}
+
+.mlogin-orb-1 {
+    width: 400px;
+    height: 400px;
+    background: #6366f1;
+    top: -80px;
+    left: -80px;
+}
+
+.mlogin-orb-2 {
+    width: 300px;
+    height: 300px;
+    background: #a855f7;
+    bottom: -50px;
+    right: -50px;
+    animation-delay: -4s;
+}
+
+.mlogin-orb-3 {
+    width: 200px;
+    height: 200px;
+    background: #3b82f6;
+    top: 50%;
+    left: 60%;
+    animation-delay: -8s;
+}
+
+@keyframes orbFloat {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    100% {
+        transform: translate(30px, -30px) scale(1.15);
+    }
+}
+
+/* Card */
+.mlogin-card {
+    width: 100%;
+    max-width: 420px;
+    padding: var(--space-3xl) var(--space-2xl);
+    background: rgba(17, 24, 39, 0.85);
+    backdrop-filter: blur(24px);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-xl);
+    position: relative;
+    z-index: 1;
+    box-shadow:
+        0 0 0 1px rgba(255, 255, 255, 0.03),
+        0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+/* Brand */
+.mlogin-brand {
+    text-align: center;
+    margin-bottom: var(--space-2xl);
+}
+
+.mlogin-logo {
+    width: 56px;
+    height: 56px;
+    border-radius: var(--radius-lg);
+    background: var(--gradient-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    margin: 0 auto var(--space-lg);
+    box-shadow: 0 8px 24px rgba(99, 102, 241, 0.35);
+}
+
+.mlogin-title {
+    font-size: var(--font-xl);
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: 6px;
+}
+
+.mlogin-desc {
+    font-size: var(--font-sm);
+    color: var(--text-tertiary);
+    line-height: 1.5;
+}
+
+/* Form */
+.mlogin-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.mlogin-error {
+    padding: 10px 14px;
+    border-radius: var(--radius-md);
+    background: rgba(239, 68, 68, 0.1);
+    border: 1px solid rgba(239, 68, 68, 0.2);
+    color: #f87171;
+    font-size: var(--font-sm);
+    font-weight: 500;
+}
+
+.mlogin-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.mlogin-label {
+    font-size: var(--font-xs);
+    font-weight: 600;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.mlogin-input-wrap {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 0 var(--space-md);
+    transition: all var(--transition-fast);
+}
+
+.mlogin-input-wrap:focus-within {
+    border-color: var(--border-accent);
+    background: rgba(99, 102, 241, 0.04);
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.mlogin-input-icon {
+    color: var(--text-tertiary);
+    flex-shrink: 0;
+}
+
+.mlogin-input {
+    flex: 1;
+    background: none;
+    border: none;
+    outline: none;
+    padding: 12px 0;
+    color: var(--text-primary);
+    font-size: var(--font-sm);
+    font-family: inherit;
+}
+
+.mlogin-input::placeholder {
+    color: var(--text-tertiary);
+}
+
+/* Buttons */
+.mlogin-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-sm);
+    padding: 13px var(--space-lg);
+    border-radius: var(--radius-md);
+    font-size: var(--font-sm);
+    font-weight: 700;
+    font-family: inherit;
+    cursor: pointer;
+    border: none;
+    transition: all var(--transition-fast);
+    width: 100%;
+}
+
+.mlogin-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.mlogin-btn-primary {
+    background: var(--gradient-primary);
+    color: white;
+    box-shadow: 0 4px 16px rgba(99, 102, 241, 0.3);
+}
+
+.mlogin-btn-primary:hover:not(:disabled) {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 24px rgba(99, 102, 241, 0.4);
+}
+
+.mlogin-btn-demo {
+    background: rgba(255, 255, 255, 0.04);
+    color: var(--text-secondary);
+    border: 1px solid var(--border-color);
+}
+
+.mlogin-btn-demo:hover:not(:disabled) {
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--text-primary);
+    border-color: var(--border-color-hover);
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.mlogin-spinner {
+    animation: spin 0.8s linear infinite;
+}
+
+/* Divider */
+.mlogin-divider {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    margin: var(--space-lg) 0;
+}
+
+.mlogin-divider::before,
+.mlogin-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border-color);
+}
+
+.mlogin-divider span {
+    font-size: var(--font-xs);
+    color: var(--text-tertiary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Demo hint */
+.mlogin-demo-hint {
+    text-align: center;
+    font-size: var(--font-xs);
+    color: var(--text-tertiary);
+    margin-top: var(--space-sm);
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    letter-spacing: 0.3px;
+    opacity: 0.6;
+}
+
+@media (max-width: 480px) {
+    .mlogin-card {
+        padding: var(--space-2xl) var(--space-lg);
+    }
+}

@@ -12,6 +12,7 @@ import LoadingAnalysis from './pages/LoadingAnalysis';
 import AnalysisResult from './pages/AnalysisResult';
 import AIRecommendations from './pages/AIRecommendations';
 import Profile from './pages/Profile';
+import MahalleLogin from './pages/MahalleLogin';
 import MahalleDashboard from './pages/MahalleDashboard';
 import Rakipler from './pages/Rakipler';
 import FiyatAnalizi from './pages/FiyatAnalizi';
@@ -20,6 +21,13 @@ import MahalleTrendleri from './pages/MahalleTrendleri';
 import KampanyaOnerileri from './pages/KampanyaOnerileri';
 import Raporlar from './pages/Raporlar';
 import Abonelik from './pages/Abonelik';
+
+/* Auth guard — redirects to login if no session */
+const MahalleAuthGuard = () => {
+  const isAuth = localStorage.getItem('mahalle_auth') === 'true';
+  if (!isAuth) return <Navigate to="/mahalle/login" replace />;
+  return <Outlet />;
+};
 
 /* Layout for authenticated / main pages (original) */
 const MainLayout = () => {
@@ -65,7 +73,10 @@ const SidebarLayout = () => {
 function App() {
   return (
     <Routes>
-      {/* Auth routes — no navigation bars */}
+      {/* Mahalle Login — public */}
+      <Route path="/mahalle/login" element={<MahalleLogin />} />
+
+      {/* Auth routes — no navigation bars (original app) */}
       <Route element={<AuthLayout />}>
         <Route path="/splash" element={<Splash />} />
         <Route path="/login" element={<Login />} />
@@ -82,19 +93,21 @@ function App() {
         <Route path="/profile" element={<Profile />} />
       </Route>
 
-      {/* Mahalle Rekabet Asistanı — Sidebar layout */}
-      <Route element={<SidebarLayout />}>
-        <Route path="/mahalle" element={<MahalleDashboard />} />
-        <Route path="/mahalle/rakipler" element={<Rakipler />} />
-        <Route path="/mahalle/fiyat-analizi" element={<FiyatAnalizi />} />
-        <Route path="/mahalle/yorum-analizi" element={<YorumAnalizi />} />
-        <Route path="/mahalle/trendler" element={<MahalleTrendleri />} />
-        <Route path="/mahalle/kampanyalar" element={<KampanyaOnerileri />} />
-        <Route path="/mahalle/raporlar" element={<Raporlar />} />
-        <Route path="/mahalle/abonelik" element={<Abonelik />} />
+      {/* Mahalle Rekabet Asistanı — protected by auth guard */}
+      <Route element={<MahalleAuthGuard />}>
+        <Route element={<SidebarLayout />}>
+          <Route path="/mahalle" element={<MahalleDashboard />} />
+          <Route path="/mahalle/rakipler" element={<Rakipler />} />
+          <Route path="/mahalle/fiyat-analizi" element={<FiyatAnalizi />} />
+          <Route path="/mahalle/yorum-analizi" element={<YorumAnalizi />} />
+          <Route path="/mahalle/trendler" element={<MahalleTrendleri />} />
+          <Route path="/mahalle/kampanyalar" element={<KampanyaOnerileri />} />
+          <Route path="/mahalle/raporlar" element={<Raporlar />} />
+          <Route path="/mahalle/abonelik" element={<Abonelik />} />
+        </Route>
       </Route>
 
-      {/* Default redirect */}
+      {/* Default redirect — goes to auth guard which checks session */}
       <Route path="*" element={<Navigate to="/mahalle" replace />} />
     </Routes>
   );
