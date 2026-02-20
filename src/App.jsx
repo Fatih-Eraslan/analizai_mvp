@@ -13,6 +13,7 @@ import AnalysisResult from './pages/AnalysisResult';
 import AIRecommendations from './pages/AIRecommendations';
 import Profile from './pages/Profile';
 import MahalleLogin from './pages/MahalleLogin';
+import MahalleRegister from './pages/MahalleRegister';
 import MahalleDashboard from './pages/MahalleDashboard';
 import Rakipler from './pages/Rakipler';
 import FiyatAnalizi from './pages/FiyatAnalizi';
@@ -73,8 +74,9 @@ const SidebarLayout = () => {
 function App() {
   return (
     <Routes>
-      {/* Mahalle Login — public */}
+      {/* Mahalle Login & Register — public */}
       <Route path="/mahalle/login" element={<MahalleLogin />} />
+      <Route path="/mahalle/register" element={<MahalleRegister />} />
 
       {/* Auth routes — no navigation bars (original app) */}
       <Route element={<AuthLayout />}>
@@ -107,8 +109,8 @@ function App() {
         </Route>
       </Route>
 
-      {/* Default redirect — goes to auth guard which checks session */}
-      <Route path="*" element={<Navigate to="/mahalle" replace />} />
+      {/* Default redirect — auth guard handles login check */}
+      <Route path="*" element={<Navigate to="/mahalle/login" replace />} />
     </Routes>
   );
 }

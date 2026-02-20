@@ -266,6 +266,27 @@
     opacity: 0.6;
 }
 
+.mlogin-register-link {
+    text-align: center;
+    font-size: var(--font-sm);
+    color: var(--text-secondary);
+    margin-top: var(--space-lg);
+    padding-top: var(--space-lg);
+    border-top: 1px solid var(--border-color);
+}
+
+.mlogin-register-link a {
+    color: var(--text-accent);
+    text-decoration: none;
+    font-weight: 700;
+    transition: color var(--transition-fast);
+}
+
+.mlogin-register-link a:hover {
+    color: #a78bfa;
+    text-decoration: underline;
+}
+
 @media (max-width: 480px) {
     .mlogin-card {
         padding: var(--space-2xl) var(--space-lg);

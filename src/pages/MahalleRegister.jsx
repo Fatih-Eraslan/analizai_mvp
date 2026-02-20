@@ -1,40 +1,34 @@
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import { Store, Mail, Lock, LogIn, ArrowRight, Loader2 } from 'lucide-react';
+import { Store, Mail, Lock, User, UserPlus, Loader2 } from 'lucide-react';
 import './MahalleLogin.css';
 
-const MahalleLogin = () => {
+const MahalleRegister = () => {
     const navigate = useNavigate();
+    const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState('');
 
-    const handleLogin = async (e) => {
+    const handleRegister = async (e) => {
         e.preventDefault();
         setError('');
 
-        if (!email.trim() || !password.trim()) {
-            setError('Lütfen e-posta ve şifre alanlarını doldurun.');
+        if (!name.trim() || !email.trim() || !password.trim()) {
+            setError('Lütfen tüm alanları doldurun.');
+            return;
+        }
+
+        if (password.length < 6) {
+            setError('Şifre en az 6 karakter olmalıdır.');
             return;
         }
 
         setLoading(true);
-        await new Promise((r) => setTimeout(r, 1000));
+        await new Promise((r) => setTimeout(r, 1200));
         localStorage.setItem('mahalle_auth', 'true');
-        localStorage.setItem('mahalle_user', JSON.stringify({ email, name: 'Mehmet Bakkal' }));
-        setLoading(false);
-        navigate('/mahalle');
-    };
-
-    const handleDemo = async () => {
-        setError('');
-        setEmail('demo@mahalleasistan.com');
-        setPassword('123456');
-        setLoading(true);
-        await new Promise((r) => setTimeout(r, 1000));
-        localStorage.setItem('mahalle_auth', 'true');
-        localStorage.setItem('mahalle_user', JSON.stringify({ email: 'demo@mahalleasistan.com', name: 'Demo Kullanıcı' }));
+        localStorage.setItem('mahalle_user', JSON.stringify({ email, name }));
         setLoading(false);
         navigate('/mahalle');
     };
@@ -53,17 +47,32 @@ const MahalleLogin = () => {
                     <div className="mlogin-logo">
                         <Store size={28} />
                     </div>
-                    <h1 className="mlogin-title">Mahalle Rekabet Asistanı</h1>
-                    <p className="mlogin-desc">Mahallenizdeki rekabeti analiz edin, kazancınızı artırın.</p>
+                    <h1 className="mlogin-title">Kayıt Ol</h1>
+                    <p className="mlogin-desc">Ücretsiz hesap oluşturun ve hemen başlayın.</p>
                 </div>
 
                 {/* Form */}
-                <form className="mlogin-form" onSubmit={handleLogin}>
+                <form className="mlogin-form" onSubmit={handleRegister}>
                     {error && (
                         <div className="mlogin-error animate-fade-in-up">
                             <span>{error}</span>
                         </div>
                     )}
+
+                    <div className="mlogin-field">
+                        <label className="mlogin-label">Ad Soyad</label>
+                        <div className="mlogin-input-wrap">
+                            <User size={16} className="mlogin-input-icon" />
+                            <input
+                                type="text"
+                                className="mlogin-input"
+                                placeholder="Mehmet Yılmaz"
+                                value={name}
+                                onChange={(e) => setName(e.target.value)}
+                                autoComplete="name"
+                            />
+                        </div>
+                    </div>
 
                     <div className="mlogin-field">
                         <label className="mlogin-label">E-posta</label>
@@ -87,48 +96,29 @@ const MahalleLogin = () => {
                             <input
                                 type="password"
                                 className="mlogin-input"
-                                placeholder="••••••••"
+                                placeholder="En az 6 karakter"
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
-                                autoComplete="current-password"
+                                autoComplete="new-password"
                             />
                         </div>
                     </div>
 
                     <button type="submit" className="mlogin-btn mlogin-btn-primary" disabled={loading}>
                         {loading ? (
-                            <><Loader2 size={18} className="mlogin-spinner" /> Giriş yapılıyor...</>
+                            <><Loader2 size={18} className="mlogin-spinner" /> Hesap oluşturuluyor...</>
                         ) : (
-                            <><LogIn size={18} /> Giriş Yap</>
+                            <><UserPlus size={18} /> Kayıt Ol</>
                         )}
                     </button>
                 </form>
 
-                {/* Divider */}
-                <div className="mlogin-divider">
-                    <span>veya</span>
-                </div>
-
-                {/* Demo Login */}
-                <button
-                    className="mlogin-btn mlogin-btn-demo"
-                    onClick={handleDemo}
-                    disabled={loading}
-                >
-                    <ArrowRight size={18} />
-                    Demo Hesap ile Giriş Yap
-                </button>
-
-                <p className="mlogin-demo-hint">
-                    demo@mahalleasistan.com / 123456
-                </p>
-
                 <p className="mlogin-register-link">
-                    Hesabınız yok mu? <Link to="/mahalle/register">Kayıt Ol</Link>
+                    Zaten hesabınız var mı? <Link to="/mahalle/login">Giriş Yap</Link>
                 </p>
             </div>
         </div>
     );
 };
 
-export default MahalleLogin;
+export default MahalleRegister;
