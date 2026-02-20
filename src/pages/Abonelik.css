@@ -1,0 +1,147 @@
+.abone-header {
+    text-align: center;
+    margin-bottom: var(--space-2xl);
+}
+
+.abone-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-xl);
+    align-items: start;
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.abone-card {
+    padding: var(--space-2xl) var(--space-xl) !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    transition: all var(--transition-base);
+}
+
+.abone-card.premium {
+    background: linear-gradient(135deg, rgba(167, 139, 250, 0.08), rgba(139, 92, 246, 0.04)) !important;
+    border-color: rgba(167, 139, 250, 0.3) !important;
+    transform: scale(1.03);
+    box-shadow: 0 0 40px rgba(139, 92, 246, 0.12);
+}
+
+.abone-card.active {
+    border-color: var(--border-accent) !important;
+}
+
+.abone-badge {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 14px;
+    border-radius: var(--radius-full);
+    background: var(--gradient-primary);
+    color: white;
+    font-size: var(--font-xs);
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.abone-plan-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-md);
+}
+
+.abone-emoji {
+    font-size: 26px;
+}
+
+.abone-plan-name {
+    font-size: var(--font-xl);
+    font-weight: 800;
+    color: var(--text-primary);
+}
+
+.abone-price {
+    display: flex;
+    align-items: baseline;
+    gap: 2px;
+    margin-bottom: var(--space-xl);
+}
+
+.abone-currency {
+    font-size: var(--font-lg);
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+.abone-amount {
+    font-size: var(--font-4xl);
+    font-weight: 800;
+    color: var(--text-primary);
+}
+
+.abone-period {
+    font-size: var(--font-sm);
+    color: var(--text-tertiary);
+}
+
+.abone-features {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: var(--space-xl);
+}
+
+.abone-feature {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    font-size: var(--font-sm);
+}
+
+.abone-feature.included {
+    color: var(--text-primary);
+}
+
+.abone-feature.excluded {
+    color: var(--text-tertiary);
+}
+
+.feat-icon.included {
+    color: #34d399;
+}
+
+.feat-icon.excluded {
+    color: var(--text-tertiary);
+    opacity: 0.5;
+}
+
+.feat-name {
+    flex: 1;
+}
+
+.feat-limit {
+    font-size: var(--font-xs);
+    color: var(--text-accent);
+    background: rgba(99, 102, 241, 0.1);
+    padding: 1px 8px;
+    border-radius: var(--radius-full);
+    font-weight: 600;
+}
+
+@media (max-width: 768px) {
+    .abone-grid {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+    }
+
+    .abone-card.premium {
+        transform: none;
+    }
+}

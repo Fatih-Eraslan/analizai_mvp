@@ -1,0 +1,101 @@
+.kampanya-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: var(--space-lg);
+}
+
+.kampanya-card {
+    padding: var(--space-xl) !important;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.kampanya-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.kampanya-etki {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 10px;
+    border-radius: var(--radius-full);
+    font-size: var(--font-xs);
+    font-weight: 700;
+}
+
+.kampanya-etki.high {
+    background: rgba(16, 185, 129, 0.12);
+    color: #34d399;
+}
+
+.kampanya-etki.mid {
+    background: rgba(251, 191, 36, 0.12);
+    color: #fbbf24;
+}
+
+.kampanya-etki.low {
+    background: rgba(99, 102, 241, 0.12);
+    color: #818cf8;
+}
+
+.kampanya-kat {
+    font-size: var(--font-xs);
+    color: var(--text-tertiary);
+    padding: 3px 8px;
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: var(--radius-sm);
+}
+
+.kampanya-baslik {
+    font-size: var(--font-lg);
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.kampanya-aciklama {
+    font-size: var(--font-sm);
+    color: var(--text-secondary);
+    line-height: 1.6;
+    flex: 1;
+}
+
+.kampanya-metrics {
+    display: flex;
+    gap: var(--space-lg);
+    padding: var(--space-md);
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-color);
+}
+
+.kampanya-metric {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+}
+
+.metric-icon {
+    color: var(--text-accent);
+}
+
+.metric-val {
+    font-weight: 700;
+    font-size: var(--font-base);
+    color: var(--text-primary);
+    display: block;
+}
+
+.metric-label {
+    font-size: var(--font-xs);
+    color: var(--text-tertiary);
+}
+
+@media (max-width: 768px) {
+    .kampanya-grid {
+        grid-template-columns: 1fr;
+    }
+}

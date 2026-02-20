@@ -1,0 +1,129 @@
+.rapor-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    flex-wrap: wrap;
+    margin-bottom: var(--space-xl);
+}
+
+.rapor-toast {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 6px 14px;
+    border-radius: var(--radius-full);
+    background: rgba(16, 185, 129, 0.12);
+    color: #34d399;
+    font-size: var(--font-xs);
+    font-weight: 600;
+    animation: fadeIn var(--transition-base) ease;
+}
+
+.rapor-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: var(--space-lg);
+    margin-bottom: var(--space-xl);
+}
+
+.rapor-card {
+    padding: var(--space-xl) !important;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.rapor-icon-wrap {
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radius-md);
+    background: var(--gradient-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.rapor-info {
+    flex: 1;
+}
+
+.rapor-baslik {
+    font-size: var(--font-base);
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 2px;
+}
+
+.rapor-tarih {
+    font-size: var(--font-xs);
+    color: var(--text-tertiary);
+    display: block;
+    margin-bottom: var(--space-sm);
+}
+
+.rapor-ozet {
+    font-size: var(--font-sm);
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+.rapor-card-actions {
+    display: flex;
+    gap: var(--space-sm);
+}
+
+/* Preview */
+.rapor-preview {
+    padding: var(--space-xl) !important;
+}
+
+.preview-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: var(--space-lg);
+}
+
+.preview-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-md);
+}
+
+.preview-section {
+    padding: var(--space-md);
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-color);
+}
+
+.preview-label {
+    font-size: var(--font-xs);
+    color: var(--text-tertiary);
+    display: block;
+    margin-bottom: 4px;
+}
+
+.preview-value {
+    font-size: var(--font-sm);
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+@media (max-width: 768px) {
+    .rapor-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .preview-content {
+        grid-template-columns: 1fr;
+    }
+
+    .rapor-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+}

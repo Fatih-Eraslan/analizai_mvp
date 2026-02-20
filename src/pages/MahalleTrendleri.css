@@ -1,0 +1,280 @@
+.trend-skeleton-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-lg);
+}
+
+.trend-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-lg);
+}
+
+.trend-card-title {
+    font-size: var(--font-base);
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: var(--space-lg);
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+}
+
+.trend-beklenti-card,
+.trend-saat-card,
+.trend-memn-card {
+    padding: var(--space-xl) !important;
+}
+
+.trend-hassasiyet-card {
+    padding: var(--space-xl) !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* Expectations */
+.beklenti-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.beklenti-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: 10px 12px;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-color);
+    transition: all var(--transition-fast);
+}
+
+.beklenti-item:hover {
+    background: rgba(255, 255, 255, 0.04);
+    border-color: var(--border-color-hover);
+}
+
+.beklenti-rank {
+    font-weight: 800;
+    font-size: var(--font-lg);
+    color: var(--text-accent);
+    min-width: 32px;
+}
+
+.beklenti-info {
+    flex: 1;
+}
+
+.beklenti-name {
+    font-size: var(--font-sm);
+    font-weight: 600;
+    color: var(--text-primary);
+    display: block;
+}
+
+.beklenti-kat {
+    font-size: var(--font-xs);
+    color: var(--text-tertiary);
+}
+
+.beklenti-right {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.beklenti-oy {
+    font-size: var(--font-xs);
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+/* Gauge */
+.hassasiyet-gauge {
+    margin-bottom: var(--space-md);
+}
+
+.gauge-svg {
+    width: 140px;
+}
+
+.hassasiyet-badge {
+    padding: 4px 16px;
+    border-radius: var(--radius-full);
+    background: rgba(239, 68, 68, 0.12);
+    color: #f87171;
+    font-weight: 700;
+    font-size: var(--font-sm);
+    margin-bottom: var(--space-sm);
+}
+
+.hassasiyet-desc {
+    font-size: var(--font-xs);
+    color: var(--text-tertiary);
+    line-height: 1.5;
+}
+
+/* Peak Hours */
+.saat-chart {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    height: 160px;
+    gap: 4px;
+    margin-bottom: var(--space-md);
+}
+
+.saat-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    height: 100%;
+}
+
+.saat-bar-wrap {
+    flex: 1;
+    display: flex;
+    align-items: flex-end;
+    width: 100%;
+}
+
+.saat-bar {
+    width: 100%;
+    border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+    position: relative;
+    min-height: 4px;
+    transition: height var(--transition-slow);
+}
+
+.saat-bar.high {
+    background: linear-gradient(180deg, #f87171, #ef4444);
+}
+
+.saat-bar.mid {
+    background: linear-gradient(180deg, #fbbf24, #f59e0b);
+}
+
+.saat-bar.low {
+    background: linear-gradient(180deg, #6366f1, #818cf8);
+}
+
+.saat-tooltip {
+    position: absolute;
+    top: -18px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 9px;
+    font-weight: 700;
+    color: var(--text-secondary);
+    opacity: 0;
+    transition: opacity var(--transition-fast);
+}
+
+.saat-bar:hover .saat-tooltip {
+    opacity: 1;
+}
+
+.saat-label {
+    font-size: 9px;
+    color: var(--text-tertiary);
+    margin-top: 4px;
+    white-space: nowrap;
+}
+
+.saat-legend {
+    display: flex;
+    gap: var(--space-lg);
+    justify-content: center;
+}
+
+.saat-legend-item {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: var(--font-xs);
+    color: var(--text-secondary);
+}
+
+.saat-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 2px;
+}
+
+.saat-dot.high {
+    background: #f87171;
+}
+
+.saat-dot.mid {
+    background: #fbbf24;
+}
+
+.saat-dot.low {
+    background: #6366f1;
+}
+
+/* Satisfaction */
+.trend-memn-card {
+    padding: var(--space-xl) !important;
+}
+
+.memn-chart {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    height: 140px;
+    gap: var(--space-lg);
+}
+
+.memn-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    height: 100%;
+}
+
+.memn-bar-wrap {
+    flex: 1;
+    display: flex;
+    align-items: flex-end;
+    width: 100%;
+}
+
+.memn-bar {
+    width: 100%;
+    background: var(--gradient-primary);
+    border-radius: var(--radius-md) var(--radius-md) 0 0;
+    display: flex;
+    justify-content: center;
+    padding-top: var(--space-sm);
+    min-height: 20px;
+    transition: height var(--transition-slow);
+}
+
+.memn-val {
+    font-size: var(--font-sm);
+    font-weight: 800;
+    color: white;
+}
+
+.memn-label {
+    font-size: var(--font-xs);
+    color: var(--text-secondary);
+    margin-top: 6px;
+    font-weight: 600;
+}
+
+@media (max-width: 768px) {
+    .trend-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .trend-skeleton-grid {
+        grid-template-columns: 1fr;
+    }
+}

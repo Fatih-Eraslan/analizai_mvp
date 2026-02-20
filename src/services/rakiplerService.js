@@ -1,0 +1,67 @@
+import { mockFetch } from './api';
+
+const rakipler = [
+    {
+        id: 1,
+        isim: 'Güneş Market',
+        puan: 4.3,
+        yorumSayisi: 247,
+        fiyatSeviyesi: 'ucuz',
+        enCokSikayet: 'Ürün çeşitliliği az',
+        enCokOvgu: 'Fiyatları çok uygun',
+        adres: 'Atatürk Cad. No: 12',
+        calismaSaatleri: '07:00 – 23:00',
+        kategoriler: { fiyat: 92, hizmet: 68, temizlik: 74, cesitlilik: 55 },
+    },
+    {
+        id: 2,
+        isim: 'Yıldız Bakkal',
+        puan: 4.1,
+        yorumSayisi: 183,
+        fiyatSeviyesi: 'ortalama',
+        enCokSikayet: 'Kasada bekleme süresi',
+        enCokOvgu: 'Taze meyve sebze',
+        adres: 'Cumhuriyet Sok. No: 5',
+        calismaSaatleri: '08:00 – 22:00',
+        kategoriler: { fiyat: 70, hizmet: 72, temizlik: 80, cesitlilik: 78 },
+    },
+    {
+        id: 3,
+        isim: 'Kardeşler Süpermarket',
+        puan: 3.8,
+        yorumSayisi: 312,
+        fiyatSeviyesi: 'pahali',
+        enCokSikayet: 'Fiyatlar yüksek',
+        enCokOvgu: 'Geniş ürün yelpazesi',
+        adres: 'İnönü Blv. No: 45',
+        calismaSaatleri: '06:00 – 00:00',
+        kategoriler: { fiyat: 45, hizmet: 82, temizlik: 88, cesitlilik: 95 },
+    },
+    {
+        id: 4,
+        isim: 'Mavi Köşe Market',
+        puan: 4.5,
+        yorumSayisi: 156,
+        fiyatSeviyesi: 'ortalama',
+        enCokSikayet: 'Otopark sorunu',
+        enCokOvgu: 'Personel ilgisi',
+        adres: 'Fevzi Çakmak Cad. No: 8',
+        calismaSaatleri: '07:30 – 22:30',
+        kategoriler: { fiyat: 72, hizmet: 90, temizlik: 85, cesitlilik: 70 },
+    },
+    {
+        id: 5,
+        isim: 'Doğa Organik',
+        puan: 4.7,
+        yorumSayisi: 98,
+        fiyatSeviyesi: 'pahali',
+        enCokSikayet: 'Sınırlı çalışma saatleri',
+        enCokOvgu: 'Organik ve doğal ürünler',
+        adres: 'Bahçelievler Mah. No: 22',
+        calismaSaatleri: '09:00 – 20:00',
+        kategoriler: { fiyat: 38, hizmet: 88, temizlik: 92, cesitlilik: 60 },
+    },
+];
+
+export const getRakipler = () => mockFetch(rakipler);
+export const getRakipDetay = (id) => mockFetch(rakipler.find((r) => r.id === id));

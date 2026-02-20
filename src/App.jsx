@@ -1,6 +1,8 @@
-import { Routes, Route, Navigate, useLocation, Outlet } from 'react-router-dom';
+import { useState } from 'react';
+import { Routes, Route, Navigate, Outlet } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import BottomNav from './components/BottomNav';
+import Sidebar from './components/Sidebar';
 import Splash from './pages/Splash';
 import Login from './pages/Login';
 import Register from './pages/Register';
@@ -10,8 +12,16 @@ import LoadingAnalysis from './pages/LoadingAnalysis';
 import AnalysisResult from './pages/AnalysisResult';
 import AIRecommendations from './pages/AIRecommendations';
 import Profile from './pages/Profile';
+import MahalleDashboard from './pages/MahalleDashboard';
+import Rakipler from './pages/Rakipler';
+import FiyatAnalizi from './pages/FiyatAnalizi';
+import YorumAnalizi from './pages/YorumAnalizi';
+import MahalleTrendleri from './pages/MahalleTrendleri';
+import KampanyaOnerileri from './pages/KampanyaOnerileri';
+import Raporlar from './pages/Raporlar';
+import Abonelik from './pages/Abonelik';
 
-/* Layout for authenticated / main pages */
+/* Layout for authenticated / main pages (original) */
 const MainLayout = () => {
   return (
     <>
@@ -33,6 +43,25 @@ const AuthLayout = () => {
   );
 };
 
+/* Sidebar layout for Mahalle pages */
+const SidebarLayout = () => {
+  const [collapsed, setCollapsed] = useState(true);
+  return (
+    <div className="sidebar-layout">
+      <Sidebar collapsed={collapsed} onToggle={() => setCollapsed((c) => !c)} />
+      <main className={`sidebar-main ${collapsed ? 'expanded' : ''}`}>
+        <div className="sidebar-mobile-header">
+          <button className="mobile-menu-btn" onClick={() => setCollapsed(false)}>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><line x1="3" y1="6" x2="21" y2="6" /><line x1="3" y1="12" x2="21" y2="12" /><line x1="3" y1="18" x2="21" y2="18" /></svg>
+          </button>
+          <span className="mobile-brand">Mahalle Rekabet Asistanı</span>
+        </div>
+        <Outlet />
+      </main>
+    </div>
+  );
+};
+
 function App() {
   return (
     <Routes>
@@ -44,7 +73,7 @@ function App() {
         <Route path="/loading" element={<LoadingAnalysis />} />
       </Route>
 
-      {/* Main routes — with Navbar + BottomNav */}
+      {/* Original main routes — with Navbar + BottomNav */}
       <Route element={<MainLayout />}>
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/add-analysis" element={<AddAnalysis />} />
@@ -53,8 +82,20 @@ function App() {
         <Route path="/profile" element={<Profile />} />
       </Route>
 
+      {/* Mahalle Rekabet Asistanı — Sidebar layout */}
+      <Route element={<SidebarLayout />}>
+        <Route path="/mahalle" element={<MahalleDashboard />} />
+        <Route path="/mahalle/rakipler" element={<Rakipler />} />
+        <Route path="/mahalle/fiyat-analizi" element={<FiyatAnalizi />} />
+        <Route path="/mahalle/yorum-analizi" element={<YorumAnalizi />} />
+        <Route path="/mahalle/trendler" element={<MahalleTrendleri />} />
+        <Route path="/mahalle/kampanyalar" element={<KampanyaOnerileri />} />
+        <Route path="/mahalle/raporlar" element={<Raporlar />} />
+        <Route path="/mahalle/abonelik" element={<Abonelik />} />
+      </Route>
+
       {/* Default redirect */}
-      <Route path="*" element={<Navigate to="/splash" replace />} />
+      <Route path="*" element={<Navigate to="/mahalle" replace />} />
     </Routes>
   );
 }

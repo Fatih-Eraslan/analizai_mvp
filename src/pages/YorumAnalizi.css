@@ -1,0 +1,243 @@
+.yorum-top-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-lg);
+    margin-bottom: var(--space-xl);
+}
+
+.yorum-card-title {
+    font-size: var(--font-base);
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: var(--space-lg);
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+}
+
+.yorum-pie-card,
+.yorum-words-card {
+    padding: var(--space-xl) !important;
+}
+
+/* Pie */
+.pie-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-lg);
+}
+
+.pie-chart {
+    width: 160px;
+    height: 160px;
+}
+
+.pie-legend {
+    display: flex;
+    gap: var(--space-lg);
+}
+
+.pie-legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: var(--font-xs);
+    color: var(--text-secondary);
+}
+
+.pie-legend-item strong {
+    color: var(--text-primary);
+    margin-left: 2px;
+}
+
+.pie-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: var(--radius-full);
+}
+
+/* Words */
+.word-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.word-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+}
+
+.word-info {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    min-width: 140px;
+}
+
+.word-badge {
+    width: 20px;
+    height: 20px;
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.word-badge.pozitif {
+    background: rgba(16, 185, 129, 0.15);
+    color: #34d399;
+}
+
+.word-badge.negatif {
+    background: rgba(239, 68, 68, 0.15);
+    color: #f87171;
+}
+
+.word-text {
+    font-size: var(--font-sm);
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+.word-bar-wrap {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+}
+
+.word-bar {
+    flex: 1;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: var(--radius-full);
+    overflow: hidden;
+}
+
+.word-fill {
+    height: 100%;
+    border-radius: var(--radius-full);
+}
+
+.word-fill.pozitif {
+    background: #34d399;
+}
+
+.word-fill.negatif {
+    background: #f87171;
+}
+
+.word-count {
+    font-size: var(--font-xs);
+    color: var(--text-tertiary);
+    font-weight: 700;
+    min-width: 24px;
+}
+
+/* Alert */
+.yorum-alert-card {
+    padding: var(--space-lg) !important;
+    border-color: rgba(239, 68, 68, 0.2) !important;
+    background: rgba(239, 68, 68, 0.04) !important;
+    margin-bottom: var(--space-lg);
+}
+
+.yorum-alert-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-sm);
+}
+
+.alert-icon {
+    color: #f87171;
+}
+
+.alert-title {
+    font-weight: 700;
+    color: #f87171;
+    font-size: var(--font-sm);
+}
+
+.alert-badge {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 3px 10px;
+    border-radius: var(--radius-full);
+    background: rgba(239, 68, 68, 0.12);
+    color: #f87171;
+    font-size: var(--font-xs);
+    font-weight: 600;
+}
+
+.alert-desc {
+    font-size: var(--font-sm);
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+/* AI Card */
+.yorum-ai-card {
+    padding: var(--space-xl) !important;
+}
+
+.ai-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    margin-bottom: var(--space-lg);
+}
+
+.ai-icon-wrap {
+    width: 42px;
+    height: 42px;
+    border-radius: var(--radius-md);
+    background: var(--gradient-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.ai-title {
+    font-size: var(--font-base);
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.ai-subtitle {
+    font-size: var(--font-xs);
+    color: var(--text-tertiary);
+}
+
+.ai-text {
+    font-size: var(--font-sm);
+    color: var(--text-secondary);
+    line-height: 1.8;
+    background: rgba(255, 255, 255, 0.02);
+    padding: var(--space-lg);
+    border-radius: var(--radius-md);
+    border-left: 3px solid rgba(99, 102, 241, 0.4);
+}
+
+@media (max-width: 768px) {
+    .yorum-top-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .word-info {
+        min-width: 100px;
+    }
+
+    .pie-legend {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}

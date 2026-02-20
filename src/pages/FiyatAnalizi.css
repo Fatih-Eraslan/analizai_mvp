@@ -1,0 +1,217 @@
+.fiyat-table-card {
+    padding: 0 !important;
+    overflow: hidden;
+    margin-bottom: var(--space-xl);
+}
+
+.fiyat-table-wrap {
+    overflow-x: auto;
+}
+
+.fiyat-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 700px;
+}
+
+.fiyat-table th {
+    padding: var(--space-md) var(--space-lg);
+    text-align: left;
+    font-size: var(--font-xs);
+    font-weight: 600;
+    color: var(--text-tertiary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    background: rgba(255, 255, 255, 0.02);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.fiyat-table td {
+    padding: var(--space-md) var(--space-lg);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.fiyat-table tbody tr:hover {
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.fiyat-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.urun-cell {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.fiyat-cell {
+    font-size: var(--font-sm);
+    color: var(--text-secondary);
+}
+
+.fiyat-cell.senin {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+}
+
+.fiyat-val {
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.fiyat-fark {
+    display: inline-flex;
+    align-items: center;
+    gap: 2px;
+    font-size: var(--font-xs);
+    font-weight: 600;
+    padding: 2px 6px;
+    border-radius: var(--radius-sm);
+}
+
+.fiyat-fark.ucuz {
+    color: #34d399;
+    background: rgba(16, 185, 129, 0.1);
+}
+
+.fiyat-fark.pahali {
+    color: #f87171;
+    background: rgba(239, 68, 68, 0.1);
+}
+
+.fiyat-ucuz {
+    color: #34d399;
+}
+
+.fiyat-pahali {
+    color: #f87171;
+}
+
+.fiyat-esit {
+    color: var(--text-tertiary);
+}
+
+.fiyat-cell.ucuz {
+    color: #34d399;
+    font-weight: 600;
+}
+
+.fiyat-cell.pahali {
+    color: #f87171;
+    font-weight: 600;
+}
+
+/* Konum Gauge */
+.konum-cell {
+    min-width: 140px;
+}
+
+.konum-bar-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.konum-bar {
+    height: 6px;
+    background: linear-gradient(90deg, #34d399, #fbbf24, #f87171);
+    border-radius: var(--radius-full);
+    position: relative;
+}
+
+.konum-dot {
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 14px;
+    height: 14px;
+    border-radius: var(--radius-full);
+    border: 2px solid var(--bg-secondary);
+    cursor: pointer;
+}
+
+.konum-dot.konum-ucuz {
+    background: #34d399;
+}
+
+.konum-dot.konum-ortalama {
+    background: #fbbf24;
+}
+
+.konum-dot.konum-pahali {
+    background: #f87171;
+}
+
+.konum-tooltip {
+    position: absolute;
+    top: -22px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--text-primary);
+    background: var(--bg-tertiary);
+    padding: 1px 6px;
+    border-radius: var(--radius-sm);
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity var(--transition-fast);
+}
+
+.konum-dot:hover .konum-tooltip {
+    opacity: 1;
+}
+
+.konum-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 9px;
+    color: var(--text-tertiary);
+}
+
+/* Summary */
+.fiyat-summary {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-lg);
+}
+
+.fiyat-summary-card {
+    padding: var(--space-lg) !important;
+    text-align: center;
+}
+
+.fiyat-summary-label {
+    font-size: var(--font-xs);
+    color: var(--text-tertiary);
+    display: block;
+    margin-bottom: var(--space-xs);
+}
+
+.fiyat-summary-value {
+    font-size: var(--font-xl);
+    font-weight: 800;
+    color: #fbbf24;
+    display: block;
+    margin-bottom: var(--space-xs);
+}
+
+.fiyat-summary-value.ucuz {
+    color: #34d399;
+}
+
+.fiyat-summary-value.pahali {
+    color: #f87171;
+}
+
+.fiyat-summary-desc {
+    font-size: var(--font-xs);
+    color: var(--text-secondary);
+}
+
+@media (max-width: 768px) {
+    .fiyat-summary {
+        grid-template-columns: 1fr;
+    }
+}
