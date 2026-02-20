@@ -27,10 +27,19 @@ const MahalleRegister = () => {
 
         setLoading(true);
         await new Promise((r) => setTimeout(r, 1200));
-        localStorage.setItem('mahalle_auth', 'true');
-        localStorage.setItem('mahalle_user', JSON.stringify({ email, name }));
+        localStorage.setItem('auth', 'true');
+        localStorage.setItem('user', JSON.stringify({
+            name,
+            email,
+            isletmeAdi: '',
+            isletmeTuru: '',
+            mahalle: '',
+            telefon: '',
+            plan: 'Basic Plan',
+            planYenileme: '2026-03-20',
+        }));
         setLoading(false);
-        navigate('/mahalle');
+        navigate('/dashboard');
     };
 
     return (
@@ -114,7 +123,7 @@ const MahalleRegister = () => {
                 </form>
 
                 <p className="mlogin-register-link">
-                    Zaten hesabınız var mı? <Link to="/mahalle/login">Giriş Yap</Link>
+                    Zaten hesabınız var mı? <Link to="/login">Giriş Yap</Link>
                 </p>
             </div>
         </div>

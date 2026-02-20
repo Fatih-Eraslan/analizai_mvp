@@ -1,33 +1,47 @@
-import { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import {
     LayoutDashboard, Users, DollarSign, MessageSquare,
     TrendingUp, Megaphone, FileText, CreditCard,
-    ChevronLeft, ChevronRight, Store, LogOut
+    ChevronLeft, ChevronRight, Store, LogOut, UserCircle
 } from 'lucide-react';
 import './Sidebar.css';
 
 const navItems = [
-    { path: '/mahalle', label: 'Dashboard', icon: LayoutDashboard },
-    { path: '/mahalle/rakipler', label: 'Rakipler', icon: Users },
-    { path: '/mahalle/fiyat-analizi', label: 'Fiyat Analizi', icon: DollarSign },
-    { path: '/mahalle/yorum-analizi', label: 'Yorum Analizi', icon: MessageSquare },
-    { path: '/mahalle/trendler', label: 'Mahalle Trendleri', icon: TrendingUp },
-    { path: '/mahalle/kampanyalar', label: 'Kampanya Önerileri', icon: Megaphone },
-    { path: '/mahalle/raporlar', label: 'Raporlar', icon: FileText },
-    { path: '/mahalle/abonelik', label: 'Abonelik', icon: CreditCard },
+    { path: '/dashboard', label: 'Dashboard', icon: LayoutDashboard },
+    { path: '/rakipler', label: 'Rakipler', icon: Users },
+    { path: '/fiyat-analizi', label: 'Fiyat Analizi', icon: DollarSign },
+    { path: '/yorum-analizi', label: 'Yorum Analizi', icon: MessageSquare },
+    { path: '/mahalle-trendleri', label: 'Mahalle Trendleri', icon: TrendingUp },
+    { path: '/kampanya-onerileri', label: 'Kampanya Önerileri', icon: Megaphone },
+    { path: '/raporlar', label: 'Raporlar', icon: FileText },
+    { path: '/abonelik', label: 'Abonelik', icon: CreditCard },
 ];
 
 const Sidebar = ({ collapsed, onToggle }) => {
     const location = useLocation();
     const navigate = useNavigate();
 
+    /* Read user info from localStorage */
+    let userName = 'Kullanıcı';
+    let userPlan = 'Pro Plan';
+    try {
+        const stored = JSON.parse(localStorage.getItem('user') || '{}');
+        if (stored.name) userName = stored.name;
+        if (stored.plan) userPlan = stored.plan;
+    } catch { /* ignore */ }
+
+    const handleLogout = () => {
+        localStorage.removeItem('auth');
+        localStorage.removeItem('user');
+        navigate('/login');
+    };
+
     return (
         <>
             <div className={`sidebar-overlay ${!collapsed ? 'visible' : ''}`} onClick={onToggle} />
             <aside className={`sidebar ${collapsed ? 'collapsed' : ''}`}>
                 <div className="sidebar-header">
-                    <div className="sidebar-brand" onClick={() => navigate('/mahalle')}>
+                    <div className="sidebar-brand" onClick={() => navigate('/dashboard')}>
                         <div className="sidebar-logo">
                             <Store size={22} />
                         </div>
@@ -61,14 +75,18 @@ const Sidebar = ({ collapsed, onToggle }) => {
                 </nav>
 
                 <div className="sidebar-footer">
-                    <div className="sidebar-user">
-                        <div className="sidebar-avatar">M</div>
+                    <div className="sidebar-user" onClick={() => navigate('/profil')} style={{ cursor: 'pointer' }}>
+                        <div className="sidebar-avatar">{userName.charAt(0).toUpperCase()}</div>
                         <div className="sidebar-user-info">
-                            <span className="sidebar-user-name">Mehmet Bakkal</span>
-                            <span className="sidebar-user-plan">Pro Plan</span>
+                            <span className="sidebar-user-name">{userName}</span>
+                            <span className="sidebar-user-plan">{userPlan}</span>
                         </div>
                     </div>
-                    <button className="sidebar-link logout-link" onClick={() => { localStorage.removeItem('mahalle_auth'); localStorage.removeItem('mahalle_user'); navigate('/mahalle/login'); }}>
+                    <button className="sidebar-link sidebar-profile-link" onClick={() => navigate('/profil')} title={collapsed ? 'Profil' : ''}>
+                        <UserCircle size={20} />
+                        <span className="sidebar-link-text">Profil</span>
+                    </button>
+                    <button className="sidebar-link logout-link" onClick={handleLogout}>
                         <LogOut size={20} />
                         <span className="sidebar-link-text">Çıkış</span>
                     </button>

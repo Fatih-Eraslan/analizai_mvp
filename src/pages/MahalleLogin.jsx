@@ -3,6 +3,17 @@ import { useNavigate, Link } from 'react-router-dom';
 import { Store, Mail, Lock, LogIn, ArrowRight, Loader2 } from 'lucide-react';
 import './MahalleLogin.css';
 
+const defaultUser = {
+    name: 'Mehmet Bakkal',
+    email: '',
+    isletmeAdi: 'Bakkal 42',
+    isletmeTuru: 'Market / Bakkal',
+    mahalle: 'Çankaya Mahallesi',
+    telefon: '+90 532 000 00 00',
+    plan: 'Pro Plan',
+    planYenileme: '2026-03-20',
+};
+
 const MahalleLogin = () => {
     const navigate = useNavigate();
     const [email, setEmail] = useState('');
@@ -21,10 +32,10 @@ const MahalleLogin = () => {
 
         setLoading(true);
         await new Promise((r) => setTimeout(r, 1000));
-        localStorage.setItem('mahalle_auth', 'true');
-        localStorage.setItem('mahalle_user', JSON.stringify({ email, name: 'Mehmet Bakkal' }));
+        localStorage.setItem('auth', 'true');
+        localStorage.setItem('user', JSON.stringify({ ...defaultUser, email }));
         setLoading(false);
-        navigate('/mahalle');
+        navigate('/dashboard');
     };
 
     const handleDemo = async () => {
@@ -33,10 +44,10 @@ const MahalleLogin = () => {
         setPassword('123456');
         setLoading(true);
         await new Promise((r) => setTimeout(r, 1000));
-        localStorage.setItem('mahalle_auth', 'true');
-        localStorage.setItem('mahalle_user', JSON.stringify({ email: 'demo@mahalleasistan.com', name: 'Demo Kullanıcı' }));
+        localStorage.setItem('auth', 'true');
+        localStorage.setItem('user', JSON.stringify({ ...defaultUser, email: 'demo@mahalleasistan.com', name: 'Demo Kullanıcı' }));
         setLoading(false);
-        navigate('/mahalle');
+        navigate('/dashboard');
     };
 
     return (
@@ -124,7 +135,7 @@ const MahalleLogin = () => {
                 </p>
 
                 <p className="mlogin-register-link">
-                    Hesabınız yok mu? <Link to="/mahalle/register">Kayıt Ol</Link>
+                    Hesabınız yok mu? <Link to="/register">Kayıt Ol</Link>
                 </p>
             </div>
         </div>
